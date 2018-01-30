@@ -1,6 +1,11 @@
 package com.springInPractice.chapter1;
 
+import com.springInPractice.chapter1.dao.AccountDao;
+import com.springInPractice.chapter1.dao.CsvAccountDao;
+import com.springInPractice.chapter1.service.AccountService;
+import com.springInPractice.chapter1.service.AccountServiceImpl;
 import oracle.jdbc.pool.OracleDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +33,15 @@ public class RootConfig {
     Resource csvResource(){
         Resource resource = new ClassPathResource("chapter1/accounts.csv");
         return resource;
+    }
+
+    @Autowired CsvAccountDao accountDao;
+
+    @Bean
+    AccountService accountService(){
+        AccountServiceImpl accountService = new AccountServiceImpl();
+        accountService.setAccountDao(this.accountDao);
+        return accountService;
     }
 
 

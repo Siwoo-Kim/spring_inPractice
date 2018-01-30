@@ -33,7 +33,7 @@ public class AccountServiceTest {
         this.accountService.findDeliquentAccounts().stream()
                 .forEach(account -> {
                     assertThat(account.getLastPaidOn().compareTo(LocalDate.now().minusDays(30)) < 0, is(true));
-                    assertThat(account.getBalance().compareTo(new BigDecimal(0)) ,is(true));
+                    assertThat(account.getBalance().compareTo(new BigDecimal(0)) < 0 ,is(true));
                 });
 
     }
