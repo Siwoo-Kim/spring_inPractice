@@ -1,27 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/aop"
-       xmlns:bean="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 
+    <context:annotation-config></context:annotation-config>
 
     <bean id="jdbcAccountDao" class="com.springInPractice.chapter1.dao.JdbcAccountDao">
         <property name="dataSource" ref="dataSource"/>
     </bean>
 
     <bean id="accountService" class="com.springInPractice.chapter1.service.AccountServiceImpl">
-        <property name="accountDao" ref="jdbcAccountDao" />
     </bean>
 
-    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource">
-        <property name="user" value="${datasource.user}"></property>
-        <property name="password" value="${datasource.password}"></property>
-        <property name="URL" value="${datasource.url}"></property>
-    </bean>
+    <bean id="dataSource" class="oracle.jdbc.pool.OracleDataSource"
+          destroy-method="close"
+          p:user="${datasource.user}" p:URL="${datasource.url}"
+          p:password="${datasource.password}"></bean>
 
     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="locations" value="classpath:/chapter1/properties/*.properties"></property>
     </bean>
+
+    <bean id="siwoo" class="com.springInPractice.chapter1.domain.Person"
+        c:firstName="Siwoo" c:lastName="Kim"></bean>
+
+    <bean id="iu" class="com.springInPractice.chapter1.domain.Person"
+          c:firstName="Ji Eun" c:lastName="Lee"></bean>
+
+
+
 
 </beans>

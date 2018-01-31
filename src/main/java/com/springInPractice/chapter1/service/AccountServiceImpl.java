@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @Service @Getter @Setter
 public class AccountServiceImpl implements AccountService {
 
+    @Autowired
     AccountDao accountDao;
 
 

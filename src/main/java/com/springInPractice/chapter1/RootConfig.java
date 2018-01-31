@@ -2,6 +2,7 @@ package com.springInPractice.chapter1;
 
 import com.springInPractice.chapter1.dao.AccountDao;
 import com.springInPractice.chapter1.dao.CsvAccountDao;
+import com.springInPractice.chapter1.dao.JdbcAccountDao;
 import com.springInPractice.chapter1.service.AccountService;
 import com.springInPractice.chapter1.service.AccountServiceImpl;
 import oracle.jdbc.pool.OracleDataSource;
@@ -16,9 +17,7 @@ import javax.sql.DataSource;
 import java.sql.SQLException;
 
 @Configuration
-@ComponentScan("com.springInPractice.chapter1")
 public class RootConfig {
-
 
     @Bean
     DataSource dataSource() throws SQLException {
@@ -35,12 +34,14 @@ public class RootConfig {
         return resource;
     }
 
-    @Autowired CsvAccountDao accountDao;
+    @Bean
+    AccountDao accountDao(){
+        return new CsvAccountDao();
+    }
 
     @Bean
     AccountService accountService(){
         AccountServiceImpl accountService = new AccountServiceImpl();
-        accountService.setAccountDao(this.accountDao);
         return accountService;
     }
 
