@@ -16,6 +16,19 @@
           <file>file://$MODULE_DIR$/src/main/java/com/springInPractice/chapter1/RootConfig.java</file>
           <file>file://$MODULE_DIR$/src/main/resources/chapter1/applicationContext.xml</file>
         </fileset>
+        <fileset id="fileset4" name="JdbcContext" removed="false">
+          <file>file://$MODULE_DIR$/src/main/java/com/springInPractice/chapter2/jdbcContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/chapter1/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/chapter1/autoContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/springInPractice/chapter1/RootConfig.java</file>
+        </fileset>
+        <fileset id="fileset5" name="HibernateContext" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/chapter2/hibernateContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/com/springInPractice/chapter1/RootConfig.java</file>
+          <file>file://$MODULE_DIR$/src/main/resources/chapter2/jdbcContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/chapter1/autoContext.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/chapter1/applicationContext.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>
@@ -45,9 +58,31 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-core:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-tx:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:5.0.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.18" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.12" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-orm:5.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:2.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:2.0.2.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.8.12" level="project" />
+    <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.25" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-entitymanager:5.2.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.logging:jboss-logging:3.3.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate:hibernate-core:5.2.12.Final" level="project" />
+    <orderEntry type="library" name="Maven: antlr:antlr:2.7.7" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss:jandex:2.0.3.Final" level="project" />
+    <orderEntry type="library" name="Maven: dom4j:dom4j:1.6.1" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.common:hibernate-commons-annotations:5.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.javax.persistence:hibernate-jpa-2.1-api:1.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.20.0-GA" level="project" />
+    <orderEntry type="library" name="Maven: net.bytebuddy:byte-buddy:1.6.14" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.transaction:jboss-transaction-api_1.2_spec:1.0.1.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.hibernate.validator:hibernate-validator:6.0.4.Final" level="project" />
+    <orderEntry type="library" name="Maven: javax.validation:validation-api:2.0.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml:classmate:1.3.1" level="project" />
   </component>
 </module>
