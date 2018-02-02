@@ -59,36 +59,36 @@ public class AbstractHibernateRepository<T extends Object> implements GenericRep
 
     @Override
     public List<T> getAll() {
-        return null;
+        return getSession().createQuery("from "+getDomainClassName()).list();
     }
 
     @Override
     public void update(T t) {
-
+        getSession().update(t);
     }
 
     @Override
     public void delete(T t) {
-
+        getSession().delete(t);
     }
 
     @Override
     public void deleteById(Serializable id) {
-
+        delete(load(id));
     }
 
     @Override
     public void deleteAll() {
-
+        getSession().createQuery("delete "+getDomainClassName()).executeUpdate();
     }
 
     @Override
     public long count() {
-        return 0;
+        return (long) getSession().createQuery("select count(*) from "+getDomainClassName()).uniqueResult();
     }
 
     @Override
     public boolean exists(Serializable id) {
-        return false;
+        return (get(id) != null);
     }
 }
