@@ -9,7 +9,7 @@
 
     <context:annotation-config></context:annotation-config>
 
-    <bean class="com.springInPractice.chapter3.config.WebConfig"></bean>
+    <bean class="com.springInPractice.chapter4.config.WebConfig"></bean>
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"></property>
