@@ -2,6 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="forms" uri="http://www.springframework.org/tags/form" %>
 <!doctype html>
 <html lang="en">
 <head>
@@ -13,23 +14,45 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>New User Registration</title>
+    <title>${pageTitle}</title>
+    <style>
+        .error{
+            border: 2px solid red;
+        }
+    </style>
 </head>
 <body>
 
+    <spring:message var="pageTitle" code="newUserRegistration.pageTitle" ></spring:message>
+
     <div class="container" style="margin-top: 85px">
         <div class="col-12">
-            <h1>New User Registration</h1>
+            <h1>${pageTitle}</h1>
             <form:form class="form-group" modelAttribute="account" action="/chapter4/users">
-                <div>Username: <form:input path="username" cssClass="form-control"></form:input></div>
-                <div>Password: <form:password path="password" cssClass="form-control"></form:password></div>
-                <div>Confirm: <form:password path="confirmPassword" cssClass="form-control"></form:password></div>
-                <div>E-mail: <form:input path="email" cssClass="form-control"></form:input></div>
-                <div>First Name: <form:input path="firstName" cssClass="form-control"></form:input></div>
-                <div>Last Name: <form:input path="lastName" cssClass="form-control"></form:input></div>
+
+                <form:errors path="*">
+                    <div><spring:message code="error.global"></spring:message></div>
+                </form:errors>
+                <div>
+                    <spring:message code="newUserRegistration.label.username" /> : <form:input path="username" cssClass="form-control" cssErrorClass="error"></form:input>
+                </div>
+                    <form:errors path="username"></form:errors>
+                <div>
+                    Password: <form:password path="password" cssClass="form-control" cssErrorClass="error"></form:password>
+                </div>
+                    <form:errors path="password"></form:errors>
+
+                <div>Confirm: <form:password path="confirmPassword" cssClass="form-control" cssErrorClass="error"></form:password></div>
+                <div>
+                    E-mail: <form:input path="email" cssClass="form-control" cssErrorClass="error"></form:input>
+                </div>
+                    <form:errors path="email"></form:errors>
+                <div>First Name: <form:input path="firstName" cssClass="form-control" cssErrorClass="error"></form:input></div>
+                <div>Last Name: <form:input path="lastName" cssClass="form-control" cssErrorClass="error"></form:input></div>
                 <div class="from-check">
                     <div><form:checkbox cssClass="form-check-input" path="marketingOk" id="marketingOk"></form:checkbox> Send up-to-dated product info by email. </div>
-                    <div><form:checkbox cssClass="form-check-input" path="acceptTerms" id="acceptTerms"></form:checkbox> I accept the <a href="#">terms of use</a>.</div>
+                    <div><form:checkbox cssClass="form-check-input" path="acceptTerms" id="acceptTerms" cssErrorClass="error"></form:checkbox> <spring:message code="newUserRegistration.label.acceptTerms" /></div>
+                        <form:errors path="acceptTerms"></form:errors>
                 </div>
                 <div><button type="submit" class="btn btn-primary" >Register</button></div>
             </form:form>

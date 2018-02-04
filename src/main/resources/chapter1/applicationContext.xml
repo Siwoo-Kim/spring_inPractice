@@ -26,7 +26,7 @@
     </bean>
 
     <bean id="siwoo" class="com.springInPractice.chapter1.domain.Person"
-        c:firstName="Siwoo" c:lastName="Kim"></bean>
+          c:firstName="Siwoo" c:lastName="Kim"></bean>
 
     <bean id="iu" class="com.springInPractice.chapter1.domain.Person"
           c:firstName="Ji Eun" c:lastName="Lee"></bean>

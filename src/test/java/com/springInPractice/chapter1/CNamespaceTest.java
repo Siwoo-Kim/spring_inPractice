@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @Log
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:/chapter1/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:/chapter1/exclude/applicationContext.xml")
 public class CNamespaceTest {
 
     @Autowired

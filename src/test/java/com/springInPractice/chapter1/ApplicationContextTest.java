@@ -10,7 +10,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import static org.junit.Assert.assertNotNull;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = "classpath:/chapter1/applicationContext.xml")
+@ContextConfiguration(locations = "classpath:/chapter1/exclude/applicationContext.xml")
 public class ApplicationContextTest {
 
     @Autowired
