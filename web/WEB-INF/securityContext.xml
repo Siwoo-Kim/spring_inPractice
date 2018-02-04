@@ -7,15 +7,18 @@
 		http://www.springframework.org/schema/security/spring-security.xsd">
 
 
-    <security:http auto-config="true" use-expressions="true" >
-        <security:form-login default-target-url="/home.html" />
+    <!-- ENABLE HTTP AUTHENTICATION : fot this, it needs Servlet Filter Chain to intercept the request !-->
+    <security:http auto-config="true" use-expressions="true" > <!-- Enable SpEL in jsp page !-->
+        <!-- Enable authentication via html form !-->
+        <security:form-login default-target-url="/home.html" /> <!-- default-target-url is for target - url when authentication is success !-->
         <security:remember-me />
-        <security:logout logout-success-url="/home.html" />
+        <security:logout logout-success-url="/home.html" /> <!-- specified url when user log out !-->
     </security:http>
 
-    <security:authentication-manager>
-        <security:authentication-provider>
-            <security:user-service>
+    <security:authentication-manager> <!-- ProviderManager instance will be created. The ProviderManger will contains and manage one or more AuthenticationProviders !-->
+        <security:authentication-provider> <!--AutenticationProvider (in this case the instance
+                                               is DaoAuthenticationProvider(InMemory) ) will provide authentication method to ProviderManger !-->
+            <security:user-service>         <!-- InMemoryDaoImpl is the class which implements *UserDetailsService !-->
                 <security:user name="siwoo" password="p@ssword" authorities="user,admin" ></security:user>
                 <security:user name="iu" password="p@ssword" authorities="user" ></security:user>
             </security:user-service>

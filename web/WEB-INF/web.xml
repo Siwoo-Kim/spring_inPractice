@@ -6,7 +6,10 @@
 
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/rootContext.xml</param-value>
+        <param-value>
+            /WEB-INF/rootContext.xml
+            /WEB-INF/securityContext.xml
+        </param-value>
     </context-param>
 
     <listener>
@@ -27,5 +30,15 @@
         <servlet-name>dispatcher</servlet-name>
         <url-pattern>/</url-pattern> <!-- *.form -> / 바꾸기-->
     </servlet-mapping>
+
+    <filter>
+        <filter-name>delegatingFilterProxy</filter-name>
+        <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>delegatingFilterProxy</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
 </web-app>
